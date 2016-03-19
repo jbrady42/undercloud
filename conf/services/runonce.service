@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Once Service
+After=network.target
+
+[Service]
+ExecStart=/home/vagrant/bin/first_run.sh
+User=vagrant
+
+[Install]
+WantedBy=multi-user.target

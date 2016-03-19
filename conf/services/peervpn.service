@@ -1,0 +1,11 @@
+[Unit]
+Description=Peer VPN Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/tmux new-session -d -s vpn /home/vagrant/bin/run_vpn
+Type=forking
+User=vagrant
+
+[Install]
+WantedBy=multi-user.target
