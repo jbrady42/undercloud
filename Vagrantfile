@@ -19,9 +19,9 @@ Vagrant.configure(2) do |config|
     c.vm.network "public_network"
   end
 
-  config.vm.define "peer1", autostart: false
-  config.vm.define "peer2", autostart: false
-  config.vm.define "peer3", autostart: false
+  config.vm.define "peer1", autostart: false do |c|
+    c.vm.provision "shell", path: "first_run.sh", privileged: false
+  end
 
   config.vm.provision "shell", path: "setup.sh", privileged: false
   # config.vm.provision "shell", path: "vpn_init.sh", privileged: false
